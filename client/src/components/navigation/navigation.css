@@ -1,0 +1,168 @@
+/* border: 3px solid red; */
+
+/*Desktop View*/
+.header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    background: var(--var-color_white);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    height: 80px;
+    z-index: 100;
+    width: 100vw;
+}
+.logo-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 2;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--var-color_black);
+}
+.logo-container a {
+    color: var(--var-color_black);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.logo {
+    width: 45px;
+    height: 45px;
+}
+.nav-options {
+    padding-left: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 50px;
+    list-style-type: none;
+}
+.mobile-option {
+    display: none;
+}
+.option a {
+    color: var(--var-color_black);
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+.option :hover {
+    color: hotpink;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/* sliding effect */
+
+.bg_slider {
+    --initialTextColor: var(--var-color_white);
+    --slideTextColor: var(--var-color_black);
+
+    --initialBgColor: transparent;
+    --slideBgColor: var(--var-color_black);
+
+    color: var(--initialTextColor);
+
+    background-image: linear-gradient(
+        90deg,
+        var(--initialBgColor) 0%,
+        var(--initialBgColor) 50%,
+        var(--slideBgColor) 50%,
+        var(--slideBgColor) 100%
+    );
+    background-size: 300%, 250%, 300%;
+    transition: background-position 0.2s cubic-bezier(0.47, 0.1, 1, 0.63),
+        color 0.2s linear;
+
+    transition-delay: 0s, 0.15s;
+    padding: 1rem;
+}
+
+.bg_slider:hover {
+    color: var(--initialTextColor);
+    cursor: pointer;
+    background-position: -50% 100%;
+}
+
+@media only screen and (max-width: 650px) {
+    /*Mobile View */
+    .header {
+        padding: 0px 10px;
+    }
+    .logo {
+        width: 45px;
+        height: 45px;
+    }
+    .option a {
+        font-size: 2.3rem;
+    }
+    .nav-options {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 0;
+        transition: all 0.5s ease;
+        flex-direction: column;
+        list-style-type: none;
+        grid-gap: 0px;
+        display: flex;
+        padding-top: 30%;
+    }
+    .nav-options.active {
+        background: var(--var-color_white);
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+        align-content: center;
+        padding-left: 0px;
+    }
+
+    .navigation-burger {
+        font-size: 2rem;
+        padding: 0.6rem 0.8rem;
+        cursor: pointer;
+        display: inline-block;
+    }
+    .bar1,
+    .bar2,
+    .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: var(--var-color_black);
+        margin: 6px 0;
+        transition: 0.5s;
+    }
+    .menu-icon {
+        font-size: 2.5rem;
+        padding-right: 0.8rem;
+        color: var(--var-color_black);
+    }
+    .option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10vw;
+        padding: 30px 0px;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}
+@media only screen and (max-width: 650px) and (orientation: landscape) {
+    /*Mobile View */
+
+    .nav-options {
+        padding-top: 5%;
+    }
+}
